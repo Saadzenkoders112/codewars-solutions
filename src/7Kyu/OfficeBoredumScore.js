@@ -22,24 +22,32 @@
 // < 100 & > 80: 'i can handle this'
 // 100 or over: 'party time!!'
 
-function findMyGlasses(array) {
-    for (let i of array) {
-        let count = 0
-        if (i.includes("-") && !(i.includes("#"))) {
-            let splittedArray = i.split("")
-            for (let j of splittedArray) {
-                if (j == "O") {
-                    count += 1
-                }
-            }
-        }
-        if (count == 2) {
-            console.log(array.indexOf(i))
+function OfficeBoredumScore(obj) {
+    let score = 0
+    let objScores = {
+        'accounts': 1,
+        'finance': 2,
+        'canteen': 10,
+        'regulation': 3,
+        'trading': 6,
+        'change': 6,
+        'IS': 8,
+        'retail': 5,
+        'cleaning': 4,
+        'pissing about': 25
+    }
+    for (let i in obj) {
+        if (obj[i] in objScores) {
+            score += objScores[obj[i]]
         }
     }
+    if (score <= 80) {
+        return "Kill me now"
+    } else if (score > 80 && score <= 100) {
+        return "i can handle this"
+    } else {
+        return "party time"
+    }
 }
-
-findMyGlasses(["O--#--O", "dustO---Odust", "more dust"])
-
 
 //https://www.codewars.com/kata/57ed4cef7b45ef8774000014
