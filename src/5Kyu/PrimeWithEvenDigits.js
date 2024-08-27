@@ -33,7 +33,6 @@ function PrimeWithEvenDigits(n) {
             }
         }
     }
-    // console.log(count)
 }
 
 PrimeWithEvenDigits(487)
